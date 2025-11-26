@@ -1,4 +1,4 @@
-package lab5;
+package lab6;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,7 +15,7 @@ public class Member {
 	public String getName() {
 		return name;
 	}
-	public ArrayList<Book> getBorrowedBooks() { 
+	public ArrayList<Book> getBorrowedBooks() {
 		return borrowedBooks;
 	}
 	public void setName(String name) {

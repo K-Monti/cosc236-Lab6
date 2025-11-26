@@ -1,4 +1,4 @@
-package lab5.tests;
+package lab6.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,9 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-import lab5.Member;
-import lab5.Library;
-import lab5.LibrarianController;
+import lab6.Member;
+import lab6.Library;
+import lab6.LibrarianController;
 
 class TestController {
 	
@@ -24,9 +24,9 @@ class TestController {
 		this.librarian = new LibrarianController(); // Fresh library: one member, three books
 		this.library = librarian.getLibrary(); 
 		librarian.addMember(memberName);
-		librarian.addBook(bookTitle1);
-		librarian.addBook(bookTitle2);
-		librarian.addBook(bookTitle3);
+		librarian.addEBook(bookTitle1);
+		librarian.addEBook(bookTitle2);
+		librarian.addEBook(bookTitle3);
 	}
 
 	@Test

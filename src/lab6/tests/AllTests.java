@@ -1,4 +1,4 @@
-package lab5.tests;
+package lab6.tests;
 
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
@@ -9,7 +9,7 @@ import org.junit.platform.suite.api.Suite;
 				TestAddRemoveMembers.class,
 				TestFindClassString.class,
 				TestBorrowBooks.class,
-				TestNotAvailableBook.class,
+				TestNotAvailablePaperBook.class,
 				TestRemoveMemberWithBooks.class,
 				TestController.class})
 public class AllTests {
