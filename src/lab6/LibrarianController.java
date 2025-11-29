@@ -3,9 +3,16 @@ package lab6;
 public class LibrarianController {
 	
 	Library library; // Library dependency
+
+    private BookFactory paperBookFactory;
+    private BookFactory eBookFactory;
+    private BookFactory audioBookFactory;
 	
-	public LibrarianController( ) {
-		this.library = new Library(); // Constructor injection
+	public LibrarianController( ) { // Constructor injection
+		this.library = new Library();
+        this.paperBookFactory = new PaperBookFactory();
+        this.eBookFactory = new EBookFactory();
+        this.audioBookFactory = new AudioBookFactory();
 	}
 	public Library getLibrary() {
 		return this.library;
@@ -17,13 +24,16 @@ public class LibrarianController {
 		library.showMembers();
 	}
 	public void addPaperBook(String title) {
-		library.addBook(new PaperBook(title));  // Book class constructor dependency
+		library.addBook(paperBookFactory.createBook(title));  // Book class constructor dependency
 	}
     public void addEBook(String title) {
-        library.addBook(new EBook(title));
+        library.addBook(eBookFactory.createBook(title));
     }
     public void addAudioBook(String title) {
-        library.addBook(new AudioBook(title));
+        library.addBook(audioBookFactory.createBook(title));
+    }
+    public void addBook(BookFactory bookFactory, String title) {
+        library.addBook(bookFactory.createBook(title));
     }
 	public void addMember(String name) {
 		library.addMember(new Member(name)); // Member class constructor dependency
@@ -55,7 +65,6 @@ public class LibrarianController {
 		else 
 			System.out.println("Member " + name + " not found.");
 	}
-	
 	public void borrowBookByMember(String title, String name) {
 		Member member = library.findMemberByName(name); // use library for search
 		Book book = library.findBookByTitle(title);  // use library for search
@@ -64,7 +73,6 @@ public class LibrarianController {
 		else 	
 			System.out.println("Either book " + title + " or member " + name + " not found.");
 	}
-	
 	public void returnBookByMember(String title, String name) {
 		Member member = library.findMemberByName(name); // use library for search
 		Book book = library.findBookByTitle(title); // use library for search

@@ -29,7 +29,7 @@ public class LibraryApp {
 	    // Adding one book, see the Sequence diagram in the lab document.
 		addBook("Dune");
 		
-		// TODO: Create three sequence diagrams for each of these method calls 
+		// DONE: Create three sequence diagrams for each of these method calls
 		addMember("Alice"); 			// 1. Add a member
 		borrowBook("Dune", "Alice");  	// 2. Borrow a book
 		returnBook("Dune", "Alice"); 	// 3. Return book		

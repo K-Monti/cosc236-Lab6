@@ -1,0 +1,13 @@
+1. The Factory method creates Book objects away from the rest of the system logic so the client code
+doesn't need to know the information about the different book types. The system can just get the
+factory to make the book object, since it knows all the necessary information. The system is more
+flexible since you can easily add different book types without modifying other classes.
+
+2. It reduces coupling since the client code doesn't need to know the different book type subclasses.
+Increases maintainability since the book creation logic is focused in one area.
+Makes the code more open to extension and closed to modification since you can easily add different
+book types and dont need to modify the code in other classes.
+
+3. With smaller systems, this much abstraction can border on unnecessary. Can make it feel a little
+confusing. If you have a bunch of different book types, making a factory class for each one will eventually
+become too much.

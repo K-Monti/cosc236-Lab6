@@ -3,23 +3,37 @@ COSC 236 Lab 6
 
 Part 3 Questions:
 
-1. Member and Library were tightly coupled with PaperBook. If you wanted to add another type of book, you would have to change a lot of the code since they directly depended on PaperBook. The Dependency Inversion Principle says that high level modules (Like Member) shouldn't depend on low level modules (like PaperBook). Introduces a mediator (The Book Interface) solved this issue.
+1. Member and Library were tightly coupled with PaperBook. If you wanted to add another type of book,
+you would have to change a lot of the code since they directly depended on PaperBook.
+The Dependency Inversion Principle says that high level modules (Like Member) shouldn't
+depend on low level modules (like PaperBook). Introduces a mediator (The Book Interface) solved this issue.
 
-2. Since we made a Book interface, Member and Library can now work with any class that implements Book. This makes it easy for different types of books to be added without having to modify the existing code.
+2. Since we made a Book interface, Member and Library can now work with any class that implements Book.
+This makes it easy for different types of books to be added without having to modify the existing code.
 
-3. The Open/Closed Principle says the classes should be open for extension and closed to modification. We accomplish this with the creation and use of the Book interface. You can extend the system with different kinds of books without having to modify the existing code.
+3. The Open/Closed Principle says the classes should be open for extension and closed to modification.
+ We accomplish this with the creation and use of the Book interface. You can extend the system with
+ different kinds of books without having to modify the existing code.
 
-4. Abstractions help reduce coupling and make it much easier to extend your system. It would be very annoying/tedious to have to modify the Library and Member class every time you wanted to add a different type of book.
+4. Abstractions help reduce coupling and make it much easier to extend your system. It would be very
+annoying/tedious to have to modify the Library and Member class every time you wanted to add a different
+type of book.
 
 
 Part 4 Questions:
 
 1. Added eBook and Audio Book test cases to existing 'TestBorrowBooks.java' and 'TestAddRemoveBooks.java'
 
-2. Applying DIP with the Book interface allows us to add different types of books like EBooks and Audio books. They work seamlessly with our already established system, shown with the borrow books, add books, and remove books tests.
+2. Applying DIP with the Book interface allows us to add different types of books like EBooks and Audio books.
+They work seamlessly with our already established system, shown with the borrow books, add books, and remove
+books tests.
 
-2.1 To support renting different things like DVDs or room, you would just need to make the corresponding class and implement a common rentable interface like we do with Book
+2.1 To support renting different things like DVDs or room, you would just need to make the corresponding
+class and implement a common rentable interface like we do with Book
 
 2.2 I would add DVD and Room objects to the existing test cases to ensure they function correctly
 
-2.3 Without DIP, you would have to rely on concrete classes and types. You'd have a ton of repeating code and would need to handle all new types explicitly. It would be very unmaintainable because every change would require you to modify the code of multiple classes. Which in turn would make the system very un-flexible.
+2.3 Without DIP, you would have to rely on concrete classes and types. You'd have a ton of repeating code
+and would need to handle all new types explicitly. It would be very unmaintainable because every change
+would require you to modify the code of multiple classes. Which in turn would make the system very
+un-flexible.
