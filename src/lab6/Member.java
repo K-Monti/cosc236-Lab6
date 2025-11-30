@@ -7,7 +7,7 @@ public class Member {
 
 	private String name;
 	private ArrayList<Book> borrowedBooks; // Book class dependency
-	
+
 	public Member(String name) {
 		this.name = name;
 		this.borrowedBooks = new ArrayList<>();
@@ -25,15 +25,21 @@ public class Member {
 		return "Member: " + name;
 	}
 	public void borrowBook(Book book) {
-		if (book != null && book.getIsAvailable() == true) {
-			borrowedBooks.add(book);
-			book.setIsAvailable(false);
+		BorrowingService borrowingService = new BorrowingService();
+		boolean success = borrowingService.borrowBook(this, book);
+		if (success) {
+			System.out.println(name + " has borrowed " + book.getTitle());
+		}else {
+			System.out.println(name + " could not borrow " + book.getTitle());
 		}
 	}
 	public void returnBook(Book book) {
-		if (book != null) {
-			borrowedBooks.remove(book);
-			book.setIsAvailable(true);
+		BorrowingService borrowingService = new BorrowingService();
+		boolean success = borrowingService.returnBook(this, book);
+		if (success) {
+			System.out.println(name + " has returned " + book.getTitle());
+		}else {
+			System.out.println(name + " could not return " + book.getTitle());
 		}
 	}
 	public void listBorrowedBooks() {
