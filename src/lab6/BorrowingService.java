@@ -27,7 +27,7 @@ public class BorrowingService implements BorrowingServiceAPI {
 	}
 
 	@Override
-	public BorrowingBookResult returnBook(Member member, lab6.Book book) {
+	public BorrowingBookResult returnBook(Member member, Book book) {
 		BorrowingBookResult result = new BorrowingBookResult();
 		
 		if(book == null) { //The book dosen't exist
@@ -49,4 +49,5 @@ public class BorrowingService implements BorrowingServiceAPI {
 		return result;
 	}
 }
+
 
