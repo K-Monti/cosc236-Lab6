@@ -1,0 +1,17 @@
+
+Scenarios: 
+
+a.	A member attempts to borrow a book with an expired membership.
+o Outcome: borrowing fails
+o	Scenario is the membership card expiring due to the passage of time. Note, member had not renewed membership before the card expiration date.
+o	This is handled by renewing the members membership. BorrowingService must check membership status before approving borrow.
+
+b.	A member returns a book which is damaged.
+o	Outcome: book is returned, and member is issued small fine.
+o	Scenario is the member returns a visibly damaged book that must be replaced.
+o	BorrowingService processes the return but flags the book as damaged; and the library orders a new copy.
+
+c.	Member attempts to exceed the borrowing limit of three books.
+o	Ex. borrowing a 4th  book, when the member has already borrowed the limit of 3.
+o	Outcome: borrowing fails
+o	BorrowingService enforces the borrowing limit. Member class checks and maintains the list of borrowed books.
