@@ -24,24 +24,17 @@ public class Member {
 	public String toString() {
 		return "Member: " + name;
 	}
-	public void borrowBook(Book book) {
-		BorrowingService borrowingService = new BorrowingService();
-		boolean success = borrowingService.borrowBook(this, book);
-		if (success) {
-			System.out.println(name + " has borrowed " + book.getTitle());
-		}else {
-			System.out.println(name + " could not borrow " + book.getTitle());
-		}
+	
+	public void borrowBook(Book book){
+		BorrowingBookResult borrowingResult =  borrowingService.borrowBook(this, book); 
+		System.out.println("Success: " + borrowingResult.getSuccess + ": " + borrowingResult.getBorrowingMessage());
 	}
+
 	public void returnBook(Book book) {
-		BorrowingService borrowingService = new BorrowingService();
-		boolean success = borrowingService.returnBook(this, book);
-		if (success) {
-			System.out.println(name + " has returned " + book.getTitle());
-		}else {
-			System.out.println(name + " could not return " + book.getTitle());
-		}
+		BorrowingBookResult returningResult =  borrowingService.returnBook(this, book);
+		System.out.println("Success: " + returningResult.getSuccess + ": " + returningResult.getBorrowingMessage());	
 	}
+
 	public void listBorrowedBooks() {
 		for (Book book : borrowedBooks)
 			System.out.println(book); // book.toString()
@@ -58,3 +51,4 @@ public class Member {
 	    borrowedBooks.clear(); // clear array of borrowed books
 	}
 }
+
