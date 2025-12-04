@@ -3,6 +3,26 @@ package lab6;
 public class BorrowingService implements BorrowingServiceAPI {
 	// DONE: Implement methods for borrowing
 	// and returning Books
+
+	//Singleton implementation:
+	private static BorrowingService instance; // private member
+	private int borrowingLimit; // to restrict the count of borrowed books
+	private BorrowingService() { // private constructor  
+		borrowingLimit = 3; 
+	}
+	public static BorrowingService getInstance( ) { 
+		// DONE
+		// Implement Singleton pattern. 
+		if (instance == null) {                      
+            synchronized (BorrowingService.class) { 
+                if (instance == null) {             
+                    instance = new BorrowingService();
+                }
+            }
+        }
+		return instance; 
+	}
+		
 	@Override
 	public BorrowingBookResult borrowBook(Member member, Book book) {
 		BorrowingBookResult result = new BorrowingBookResult();
@@ -49,5 +69,6 @@ public class BorrowingService implements BorrowingServiceAPI {
 		return result;
 	}
 }
+
 
 
