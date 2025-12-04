@@ -4,9 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import lab6.Member;
-import lab6.PaperBook;
-import lab6.Library;
+import lab6.*;
 
 
 class TestRemoveMemberWithBooks {
@@ -23,7 +21,7 @@ class TestRemoveMemberWithBooks {
 		paperBook1 = new PaperBook("Dune");
 		paperBook2 = new PaperBook("1984");
 		paperBook3 = new PaperBook("Moby Dick");
-		member = new Member("Dude");
+		member = new Member("Dude", BorrowingService.getInstance());
 		library.addMember(member);
 		library.addBook(paperBook1);
 		library.addBook(paperBook2);

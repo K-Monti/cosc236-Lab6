@@ -2,6 +2,7 @@ package lab6.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import lab6.BorrowingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import lab6.PaperBook;
@@ -17,8 +18,8 @@ class TestNotAvailablePaperBook {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		member1 = new Member("Alice"); // flush borrowedBook array 
-		member2 = new Member("Bob");   // flush borrowedBook array 
+		member1 = new Member("Alice", BorrowingService.getInstance()); // flush borrowedBook array
+		member2 = new Member("Bob", BorrowingService.getInstance());   // flush borrowedBook array
 		paperBook1.setIsAvailable(true);
 		paperBook2.setIsAvailable(true);
 	}

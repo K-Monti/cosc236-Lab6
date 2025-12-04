@@ -3,6 +3,7 @@ package lab6.tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+import lab6.BorrowingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,16 +15,22 @@ class TestAddRemoveMembers {
 
 	
 	private Library library;
+    private BorrowingService borrowingService;
+    private Member member1;
+    private Member member2;
+    private PaperBook paperBook1;
+    private PaperBook paperBook2;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		 this.library = new Library(); // empty library for each test
+        this.library = new Library(); // empty library for each test
+        this.borrowingService = BorrowingService.getInstance();
+
+        member1 = new Member("Dude", borrowingService);
+        member2 = new Member("Gal", borrowingService);
+        paperBook1 = new PaperBook("Dune");
+        paperBook2 = new PaperBook("1984");
 	}
-	
-	Member member1 = new Member("Dude");
-	Member member2 = new Member("Gal");
-	PaperBook paperBook1 = new PaperBook("Dune");
-	PaperBook paperBook2 = new PaperBook("1984");
 	
 	@Test
 	void AddMember() {

@@ -6,9 +6,8 @@ public class BorrowingService implements BorrowingServiceAPI {
 
 	//Singleton implementation:
 	private static BorrowingService instance; // private member
-	private int borrowingLimit; // to restrict the count of borrowed books
 	private BorrowingService() { // private constructor  
-		borrowingLimit = 3; 
+		;
 	}
 	public static BorrowingService getInstance( ) { 
 		// DONE
@@ -26,8 +25,13 @@ public class BorrowingService implements BorrowingServiceAPI {
 	@Override
 	public BorrowingBookResult borrowBook(Member member, Book book) {
 		BorrowingBookResult result = new BorrowingBookResult();
-			
-		if(member.getBorrowedBooks().contains(book)) { //The book is already borrowed by the same member 
+
+        if (book == null) {
+            result.setSuccess(false);
+            result.setBorrowingMessage("Book doesn't exist, borrowing unsuccessful");
+            return result;
+        }
+        if(member.getBorrowedBooks().contains(book)) { //The book is already borrowed by the same member
 			result.setSuccess(false);
 			result.setBorrowingMessage("Member has already borrowed this book, cannot be borrowed");
 			return result;
@@ -50,9 +54,9 @@ public class BorrowingService implements BorrowingServiceAPI {
 	public BorrowingBookResult returnBook(Member member, Book book) {
 		BorrowingBookResult result = new BorrowingBookResult();
 		
-		if(book == null) { //The book dosen't exist
+		if(book == null) { //The book doesn't exist
 			result.setSuccess(false);
-			result.setBorrowingMessage("Book dosen't exist, borrowing unsuccessful");
+			result.setBorrowingMessage("Book doesn't exist, borrowing unsuccessful");
 			return result;
 		}
 		if(!member.getBorrowedBooks().contains(book)) { //The member has not borrowed the book

@@ -2,27 +2,25 @@ package lab6.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import lab6.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import lab6.Book;
-import lab6.PaperBook;
-import lab6.Library;
-import lab6.Member;
 
 
 class TestFindClassString {
 
 	
 private Library library;
-	
+	private BorrowingService borrowingService;
+
 	@BeforeEach
 	void setUp() throws Exception {
-		 this.library = new Library(); // empty library for each test
+        this.library = new Library(); // empty library for each test
+        this.borrowingService = BorrowingService.getInstance();
 	}
 	
-	Member member1 = new Member("Dude");
-	Member member2 = new Member("Gal");
+	Member member1 = new Member("Dude", borrowingService);
+	Member member2 = new Member("Gal",borrowingService);
 	PaperBook paperBook1 = new PaperBook("Dune");
 	PaperBook paperBook2 = new PaperBook("1984");
 

@@ -11,20 +11,28 @@ import org.junit.jupiter.api.Test;
 class TestAddRemoveBooks {
 	
 	private Library library;
-	
+    private BorrowingService borrowingService;
+    private Book paperBook1;
+    private Book paperBook2;
+    private Book paperBook3;
+    private Book eBook;
+    private Book audioBook;
+    private Member member;
+
 	@BeforeEach
 	void setUp() throws Exception {
-		 this.library = new Library(); // empty library for each test
+        this.library = new Library(); // empty library for each test
+        this.borrowingService = BorrowingService.getInstance();
+        member = new Member("Grady Booch", borrowingService);
+
+        paperBook1 = new PaperBook("Dune");
+        paperBook2 = new PaperBook("1984");
+        paperBook3 = new PaperBook("Moby Dick");
+
+        eBook = new EBook("Alice in wonderland");
+        audioBook = new AudioBook("Harry Potter");
+
 	}
-
-	Book paperBook1 = new PaperBook("Dune");
-	Book paperBook2 = new PaperBook("1984");
-	Book paperBook3 = new PaperBook("Moby Dick");
-
-    EBook eBook = new EBook("Alice in wonderland");
-    AudioBook audioBook = new AudioBook("Harry Potter");
-
-	Member member = new Member("Grady Booch");
 	
 	@Test
 	void AddBooks() {

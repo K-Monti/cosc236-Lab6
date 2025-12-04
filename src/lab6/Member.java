@@ -7,10 +7,12 @@ public class Member {
 
 	private String name;
 	private ArrayList<Book> borrowedBooks; // Book class dependency
+    private BorrowingService borrowingService;
 
-	public Member(String name) {
+	public Member(String name, BorrowingService service) {
 		this.name = name;
 		this.borrowedBooks = new ArrayList<>();
+        this.borrowingService = service;
 	}
 	public String getName() {
 		return name;
@@ -18,6 +20,7 @@ public class Member {
 	public ArrayList<Book> getBorrowedBooks() {
 		return borrowedBooks;
 	}
+    public BorrowingService getBorrowingService() { return  borrowingService; }
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -27,12 +30,12 @@ public class Member {
 	
 	public void borrowBook(Book book){
 		BorrowingBookResult borrowingResult =  borrowingService.borrowBook(this, book); 
-		System.out.println("Success: " + borrowingResult.getSuccess + ": " + borrowingResult.getBorrowingMessage());
+		System.out.println("Success: " + borrowingResult.getSuccess() + ": " + borrowingResult.getBorrowingMessage());
 	}
 
 	public void returnBook(Book book) {
 		BorrowingBookResult returningResult =  borrowingService.returnBook(this, book);
-		System.out.println("Success: " + returningResult.getSuccess + ": " + returningResult.getBorrowingMessage());	
+		System.out.println("Success: " + returningResult.getSuccess() + ": " + returningResult.getBorrowingMessage());
 	}
 
 	public void listBorrowedBooks() {

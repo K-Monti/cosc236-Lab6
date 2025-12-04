@@ -13,8 +13,8 @@ import org.junit.platform.suite.api.Suite;
 				TestRemoveMemberWithBooks.class,
 				TestController.class,
                 TestDifferentBookType.class,
-                TestBookFactory.class
-			    TestBorrowingService.class
+                TestBookFactory.class,
+			    TestBorrowingService.class,
 				TestSingleton.class
 			   })
 public class AllTests {

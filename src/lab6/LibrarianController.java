@@ -7,9 +7,11 @@ public class LibrarianController {
     private BookFactory paperBookFactory;
     private BookFactory eBookFactory;
     private BookFactory audioBookFactory;
+    private BorrowingService borrowingService;
 	
 	public LibrarianController( ) { // Constructor injection
 		this.library = new Library();
+        this.borrowingService = BorrowingService.getInstance();
         this.paperBookFactory = new PaperBookFactory();
         this.eBookFactory = new EBookFactory();
         this.audioBookFactory = new AudioBookFactory();
@@ -36,7 +38,7 @@ public class LibrarianController {
         library.addBook(bookFactory.createBook(title));
     }
 	public void addMember(String name) {
-		library.addMember(new Member(name)); // Member class constructor dependency
+		library.addMember(new Member(name, borrowingService)); // Member class constructor dependency
 	}
 	public void removeBook(String title) {
 		library.removeBook(title); // remove 
