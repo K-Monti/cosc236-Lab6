@@ -1,0 +1,13 @@
+Explain the Role of the Singleton Pattern:
+The Singleton pattern was chosen to ensure that only one instance of BorrowingService was being used. 
+We centralize the system by having all members interact with the single service for borrowing and returning books. 
+This allows us to apply the same rules consistently. 
+
+Benefits:
+-	Consistency: by having only one BorrowingService we can guarantee the same rules are followed for all borrowing and returning that takes place in the system.
+-	Efficiency: By only creating one instance of BorrowingService we can be efficient and not waste memory.
+Drawback:
+-	Flexibility: the singleton pattern reduces flexibility by making the system harder to scale.
+
+Alternative Design Choices:
+A manager class could be created to manage instead and centralize operations. This would support the consistency centralization provides but could be more flexible also.
